@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 const Register = () => {
 	const [formData, setFormData] = React.useState({
@@ -20,25 +19,9 @@ const Register = () => {
 		if (formData.password !== formData.password2) {
 			console.log('Passwords do not match');
 		} else {
-			const body = {
-				name: formData.name,
-				email: formData.email,
-				password: formData.password,
-			};
 
-			console.log(body);
-			try {
-				const config = {
-					headers: {
-						'Content-Type': 'application/json',
-					},
-				};
+			console.log('Success');
 
-				const res = await axios.post('/api/user', body, config);
-				console.log(res.data);
-			} catch (err) {
-				console.error(err.response.data);
-			}
 		}
 	};
 	return (
