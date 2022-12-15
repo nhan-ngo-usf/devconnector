@@ -19,7 +19,9 @@ const Register = () => {
 		if (formData.password !== formData.password2) {
 			console.log('Passwords do not match');
 		} else {
+
 			console.log('Success');
+
 		}
 	};
 	return (
