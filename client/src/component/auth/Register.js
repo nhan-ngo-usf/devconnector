@@ -20,22 +20,21 @@ const Register = () => {
 		if (formData.password !== formData.password2) {
 			console.log('Passwords do not match');
 		} else {
-			const { name, email, password } = { formData };
-			const newUser = {
-				name,
-				email,
-				password,
+			const body = {
+				name: formData.name,
+				email: formData.email,
+				password: formData.password,
 			};
 
+			console.log(body);
 			try {
 				const config = {
 					headers: {
 						'Content-Type': 'application/json',
 					},
 				};
-				const body = JSON.stringify(newUser);
 
-				const res = await axios.post('/api/users', body, config);
+				const res = await axios.post('/api/user', body, config);
 				console.log(res.data);
 			} catch (err) {
 				console.error(err.response.data);
